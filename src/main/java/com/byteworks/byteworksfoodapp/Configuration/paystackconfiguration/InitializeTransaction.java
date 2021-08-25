@@ -7,11 +7,16 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class InitializeTransaction {
+
+    @Value("${paystack.api.key}")
+    private static String paystackAPIKey;
+
     public static InitializeTransactionResponse initTransaction(InitializeTransactionRequest request) throws Exception {
 
         InitializeTransactionResponse initializeTransactionResponse = null;
@@ -29,7 +34,7 @@ public class InitializeTransaction {
             HttpPost post = new HttpPost("https://api.paystack.co/transaction/initialize");
             post.setEntity(postingString);
             post.addHeader("Content-type", "application/json");
-            post.addHeader("Authorization", "Bearer sk_test_42da6dc739d3dc54596e4bc6a41f4cb163078299");
+            post.addHeader("Authorization", paystackAPIKey);
 
             StringBuilder result = new StringBuilder();
             HttpResponse response = client.execute(post);

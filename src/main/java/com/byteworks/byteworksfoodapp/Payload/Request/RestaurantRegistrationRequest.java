@@ -21,6 +21,7 @@ public class RestaurantRegistrationRequest {
 
     private String phoneNumber;
 
+    @NotBlank(message = "city cannot be empty")
     private String city;
 
     @NotNull(message = "password cannot be empty")
