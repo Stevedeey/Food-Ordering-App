@@ -41,7 +41,6 @@ import java.util.regex.Pattern;
 public class RestaurantServiceImplementation implements RestaurantService {
 
 
-    private final RoleRepository roleRepository;
     private final UserDetailService userDetailService;
     private final AddressRepository addressRepository;
     private final RestaurantRepository restaurantRepository;

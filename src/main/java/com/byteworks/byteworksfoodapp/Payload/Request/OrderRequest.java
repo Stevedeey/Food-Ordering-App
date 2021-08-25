@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class OrderRequest implements Serializable {
 
     private String shippingAddress;
 
+    @NotBlank(message = "city cannot be empty")
     private String city;
 
     private List<CartItemRequest> cartItems;

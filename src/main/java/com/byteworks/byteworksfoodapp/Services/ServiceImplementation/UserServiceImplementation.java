@@ -47,9 +47,6 @@ public class UserServiceImplementation implements UserService {
     @Override
     public UserResponse registration(UserRegistrationRequest userRegistrationRequest) {
 
-        userRegistrationRequest.setPassword(userRegistrationRequest.getEmail());
-        userRegistrationRequest.setConfirmPassword(userRegistrationRequest.getEmail());
-
         if(existsByMail(userRegistrationRequest.getEmail())){
             throw new BadRequestException("Error: Email is already taken!");
         }
@@ -57,7 +54,8 @@ public class UserServiceImplementation implements UserService {
             throw new BadRequestException("Error: Password does not match");
         }
         if(!isValidPassword(userRegistrationRequest.getPassword())){
-            throw new BadRequestException("Error: Password must be between 8 and 40 long and must be an Alphabet or a Number");
+            throw new BadRequestException("Error: Password must be between 8 and 40 " +
+                    "long and must be an Alphabet or a Number");
         }
         if(!isValidEmail(userRegistrationRequest.getEmail())){
             throw new BadRequestException("Error: Email must be valid");
@@ -80,13 +78,6 @@ public class UserServiceImplementation implements UserService {
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
 
-        if(!existsByMail(loginRequest.getEmail())){
-            UserRegistrationRequest userRegistrationRequest = new UserRegistrationRequest();
-            userRegistrationRequest.setEmail(loginRequest.getEmail());
-            registration(userRegistrationRequest);
-        }
-
-        loginRequest.setPassword(loginRequest.getEmail());
         Authentication authentication = authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(
                                 loginRequest.getEmail(),
@@ -102,7 +93,6 @@ public class UserServiceImplementation implements UserService {
     private boolean isValidPassword(String password) {
         String regex = "^(([0-9]|[a-z]|[A-Z]|[@.&*!#$%^():;'?><])*){8,40}$";
 
-        // Compile the ReGex
         Pattern p = Pattern.compile(regex);
         if (password == null) {
             throw new BadRequestException("Error: Password cannot be null");
@@ -115,7 +105,6 @@ public class UserServiceImplementation implements UserService {
     private boolean isValidEmail(String email) {
         String regex = "^(.+)@(\\w+)\\.(\\w+)$";
 
-        // Compile the ReGex
         Pattern p = Pattern.compile(regex);
         if (email == null) {
             throw new BadRequestException("Error: Email cannot be null");

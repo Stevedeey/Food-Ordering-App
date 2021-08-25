@@ -8,7 +8,9 @@ import com.byteworks.byteworksfoodapp.Payload.Response.OrderResponse;
 import java.util.List;
 
 public interface OrderService {
+
     OrderResponse doCheckOut(OrderRequest orderRequest);
+
     List<Order> getAllOrders();
 
     List<Order> getAllOrdersByUserId(Long UserId);
