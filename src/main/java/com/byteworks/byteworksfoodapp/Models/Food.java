@@ -34,7 +34,7 @@ public class Food extends BaseModel{
     private List<Category> categories;
 
     @Column
-    private String deliveryTime;
+    private String preparationTime;
 
     @Column
     @OneToMany(cascade = CascadeType.ALL)
