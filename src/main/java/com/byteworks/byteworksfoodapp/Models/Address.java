@@ -29,4 +29,8 @@ public class Address extends BaseModel {
         this.address = address;
         this.city = city;
     }
+
+    public Address(String address) {
+        super();
+    }
 }

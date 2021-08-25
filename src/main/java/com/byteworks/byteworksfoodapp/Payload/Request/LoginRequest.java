@@ -16,6 +16,6 @@ public class LoginRequest {
     @Email(message = "must be email")
     private String email;
 
-//  @NotBlank(message = "password cannot be empty")
+    @NotBlank(message = "password cannot be empty")
     private String password;
 }
