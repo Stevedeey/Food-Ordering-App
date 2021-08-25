@@ -21,6 +21,8 @@ public class RestaurantRegistrationRequest {
 
     private String phoneNumber;
 
+    private String city;
+
     @NotNull(message = "password cannot be empty")
     @Size(min = 8, max = 20)
     private String password = "password";

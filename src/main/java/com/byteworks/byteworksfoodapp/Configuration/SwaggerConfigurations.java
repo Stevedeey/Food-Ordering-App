@@ -61,16 +61,15 @@ public class SwaggerConfigurations implements WebMvcConfigurer {
         return List.of(new SecurityReference("Bearer", authorizationScopes));
     }
 
-
     private ApiInfo apiDetails() {
         return new ApiInfo(
                 "Byteworks Food API",
                 "API for Byteworks food ordering platform",
                 "1.0",
                 "Free to use",
-                new springfox.documentation.service.Contact("Byteworks", "https://www.byteworks.com", "career@byteworks.com"),
+                new springfox.documentation.service.Contact("Byteworks", "https://www.byteworks.com.ng", "career@byteworks.com.ng"),
                 "API License",
-                "https://byteworks.com/terms",
+                "https://byteworks.com.ng/terms",
                 Collections.emptyList()
         );
     }
