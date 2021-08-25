@@ -28,7 +28,7 @@ public class FoodResponse {
 
     private List<Category> categories;
 
-    private String deliveryTime;
+    private String preparationTime;
 
     private List<Image> images;
 

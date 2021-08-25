@@ -93,7 +93,7 @@ public class FoodServiceImplementation implements FoodService {
         food.setRestaurant(loggedRestaurant);
         food.setDescription(foodRequest.getDescription());
         food.setCategories(setCategory(foodRequest.getCategories()));
-        food.setDeliveryTime(foodRequest.getDeliveryTime());
+        food.setPreparationTime(foodRequest.getPreparationTime());
         food.setImages(setImages(foodRequest.getFoodImages()));
         Set<Category> availableCategories = loggedRestaurant.getAvailableCategories();
         availableCategories.addAll(food.getCategories());

@@ -23,7 +23,7 @@ public class FoodRequest {
 
     private List<String> categories;
 
-    private String deliveryTime;
+    private String preparationTime;
 
     private List<String> foodImages;
 
