@@ -1,5 +1,6 @@
 package com.byteworks.byteworksfoodapp.Payload.Request;
 
+import com.byteworks.byteworksfoodapp.Models.Enums.City;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,8 @@ public class OrderRequest implements Serializable {
     private String phoneNumber;
 
     private String shippingAddress;
+
+    private String city;
 
     private List<CartItemRequest> cartItems;
 
