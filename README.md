@@ -1,4 +1,4 @@
-# ByteWorks-Food-App
+# Food-Ordering-App
 This is a multivendor food ordering platform.
 
 
